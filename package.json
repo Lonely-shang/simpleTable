@@ -1,0 +1,47 @@
+{
+  "name": "simpletable",
+  "version": "1.0.0",
+  "description": "This is a spreadsheet imitating Excel",
+  "main": "./example/index.ts",
+  "author": "Miliky",
+  "license": "MIT",
+  "keywords": [
+    "vue-simpletable",
+    "vue editable table",
+    "vue excel table",
+    "vue"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "node config/devServer.js",
+    "build": "node config/build.js",
+    "release": "node config/release.js",
+    "lint": "eslint --ext .js,.vue src example --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.1.0",
+    "better-webpack-progress": "^1.1.0",
+    "css-loader": "^3.5.3",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^4.3.0",
+    "ts-loader": "^7.0.4",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.9.2",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-loader": "^15.9.2",
+    "vue-property-decorator": "^8.4.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "eslint-friendly-formatter": "^4.0.1",
+    "tslint": "^6.1.2"
+  }
+}
