@@ -1,8 +1,8 @@
 const path = require('path');
 // const VueLoaderPlugin = require('vue-loader/lib/plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -46,7 +46,36 @@ const webpackConfig = {
             loader: 'tslint-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        oneOf: [
+          {
+            resourceQuery: /module/,
+            use: [
+              isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[local]_[hash:base64:8]',
+                  },
+                },
+              },
+              'postcss-loader',
+              'sass-loader',
+            ],
+          },
+          {
+            use: [
+              isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+              'css-loader',
+              'postcss-loader',
+              'sass-loader',
+            ],
+          },
+        ],
+      },
     ]
   },
   node: {
